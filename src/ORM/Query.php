@@ -16,7 +16,7 @@ class Query extends CakeQuery
             parent::triggerBeforeFind();
 
             $aliasedField = $this->repository()->aliasField($this->repository()->getSoftDeleteField());
-            if (!is_array($this->getOptions()) || !in_array('withDeleted', $this->getOptions())) {
+            if (!is_array($this->getOptions()) || !in_array('withDeleted', $this->getOptions(),true)) {
                 $this->andWhere($aliasedField . ' IS NULL');
             }
         }
