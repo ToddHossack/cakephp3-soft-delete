@@ -18,7 +18,7 @@ class Query extends CakeQuery
             $aliasedField = $this
                 ->getRepository()
                 ->aliasField($this->getRepository()->getSoftDeleteField());
-            if (!is_array($this->getOptions()) || !in_array('withDeleted', $this->getOptions())) {
+            if (!is_array($this->getOptions()) || !in_array('withDeleted', $this->getOptions(),true)) {
                 $this->andWhere($aliasedField . ' IS NULL');
             }
         }
